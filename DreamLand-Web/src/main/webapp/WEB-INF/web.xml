@@ -10,8 +10,8 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath*:spring-mybatis.xml
-<!--      classpath*:applicationContext-redis.xml,-->
+      classpath*:spring-mybatis.xml,
+      classpath*:applicationContext-redis.xml
 <!--      classpath*:applicationContext-activemq.xml,-->
     </param-value>
   </context-param>
@@ -81,6 +81,17 @@
   <session-config>
     <session-timeout>15</session-timeout>
   </session-config>
+
+  <!--验证码-->
+  <servlet>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <servlet-class>wang.dreamland.www.common.CodeCaptchaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <url-pattern>/captchaServlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 
