@@ -114,7 +114,7 @@ public class RegisterController {
     }
 
     /**
-     * 用户注册
+     * 用户注册并发送激活邮件(已注册未激活)
      *
      * @param model
      * @param email
@@ -176,7 +176,6 @@ public class RegisterController {
         }
     }
         // 匹对验证码的正确性
-
     public int checkValidateCode(String code) {
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         Object vercode = attrs.getRequest().getSession().getAttribute("VERCODE_KEY");
@@ -190,6 +189,11 @@ public class RegisterController {
     }
 
 
+    /**
+     * 激活账户
+     * @param model
+     * @return
+     */
     @RequestMapping("/activecode")
     public String active(Model model) {
         log.info( "==============激活验证==================" );
@@ -245,6 +249,11 @@ public class RegisterController {
         return map;
     }
 
+    /**
+     * 跳转到注册页面
+     * @param model
+     * @return
+     */
     @RequestMapping("/register")
     public String register(Model model) {
 

@@ -13,5 +13,6 @@
 </head>
 <body>
     <a href="register.jsp">点我注册</a>
+    <a href="/login">点我登录</a>
 </body>
 </html>

@@ -321,7 +321,7 @@
         return flag_e;
     }
 
-    //验证码校验
+    //验证码校验(检查验证码)
     var flag_c = false;
     function checkCode() {
         var code = $("#code").val();
