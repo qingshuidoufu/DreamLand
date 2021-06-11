@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * Mybatis+Mysql 分页工具类
+ * Mybatis+Mysql 分页工具类(实现intercepter,在filter拦截index.jsp后调用查询数据库文章内容后,拦截sql请求)
  */
 @Intercepts({
 		@Signature(type = StatementHandler.class, method = "prepare", args = {
@@ -39,7 +39,7 @@ public class PageHelper implements Interceptor {
 	public static void startPage(Integer pageNum, Integer pageSize) {
 		System.out.println("pageNumc:" + pageNum);
 		localPage.set(new Page(pageNum, pageSize));
-	}
+}
 
 	/**
 	 * 结束分页并返回结果，该方法必须被调用，否则localPage会一直保存下去，直到下一次startPage
@@ -54,6 +54,7 @@ public class PageHelper implements Interceptor {
 
 	//@Override
 	public Object intercept(Invocation invocation) throws Throwable {
+
 		if (localPage.get() == null) {
 			return invocation.proceed();
 		}

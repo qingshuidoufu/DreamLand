@@ -43,7 +43,7 @@
             <!--标签页，两种登录方式-->
             <ul class="nav nav-secondary nav-justified">
                 <li id="a_login" class="active"><a data-toggle="tab" href="#account-login">账号登录</a></li>
-                <li id="p_login"><a data-toggle="tab" href="#phone-login">手机快捷登录</a></li>
+                <li id="p_login"><a data-toggle="tab" onclick="phoneLoginNotAllow()" href="#phone-login">手机快捷登录</a></li>
             </ul>
             <!-- 标签页内容，两种表单 -->
             <div class="tab-content">
@@ -240,6 +240,9 @@
         if(checkUserName()&&checkPassword()&&checkCode()){
             $("#normal_form").submit();
         }
+    }
+    function phoneLoginNotAllow(){
+        alert("手机登录因阿里云不开放个人短信服务故暂时不支持! 请使用账号登录!")
     }
 
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import wang.dreamland.www.common.CodeCaptchaServlet;
+import wang.dreamland.www.common.Constants;
 import wang.dreamland.www.common.MD5Util;
 import wang.dreamland.www.entity.User;
 import wang.dreamland.www.mail.SendEmail;
@@ -99,9 +100,10 @@ public class RegisterController {
     public Map<String, Object> checkCode(Model model, @RequestParam(value = "code", required = false) String code) {
         log.debug("注册-判断验证码" + code + "是否可用");
         Map map = new HashMap<String, Object>();
+        //从session中取出生成的验证码
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         String vcode = (String) attrs.getRequest().getSession().getAttribute(CodeCaptchaServlet.VERCODE_KEY);
-
+        //传入的验证码和session中的进行比对
         if (code.equals(vcode)) {
             //验证码正确
             map.put("message", "success");
@@ -132,16 +134,19 @@ public class RegisterController {
                              @RequestParam(value = "code", required = false) String code) {
 
         log.debug("注册...");
+        //验证码空白
         if (StringUtils.isBlank(code)) {
             model.addAttribute("error", "非法注册，请重新注册！");
             return "../register";
         }
-
+        //检查验证码状态
         int b = checkValidateCode(code);
+        //验证码为空了(session超时)
         if (b == -1) {
             model.addAttribute("error", "验证码超时，请重新注册！");
             return "../register";
         } else if (b == 0) {
+            //验证码与session中的不一致
             model.addAttribute("error", "验证码不正确,请重新输入!");
             return "../register";
         }
@@ -154,28 +159,29 @@ public class RegisterController {
         } else {
             user = new User();
             user.setNickName(nickname);
-
-            user.setPassword(MD5Util.encodeToHex("salt"+password));
+            user.setPassword(MD5Util.encodeToHex(Constants.SALT+password));
             user.setPhone(phone);
             user.setEmail(email);
             user.setState("0");
             user.setEnable("0");
             user.setImgUrl("/images/icon_m.jpg");
-            //邮件激活码
-            String validateCode = MD5Util.encodeToHex("salt"+email + password);
+            //邮件激活激活代码
+            String validateCode = MD5Util.encodeToHex(Constants.SALT +email + password);
+            //将邮件激活代码存到redis中
             redisTemplate.opsForValue().set(email, validateCode, 24, TimeUnit.HOURS);// 24小时 有效激活 redis保存激活码
 
             userService.regist(user);
 
             log.info("注册成功");
             SendEmail.sendEmailMessage(email, validateCode);
+            //定义回传的信息, 邮箱地址加邮箱激活代码
             String message = email + "," + validateCode;
             model.addAttribute("message", message);
             return "/regist/registerSuccess";
 
         }
     }
-        // 匹对验证码的正确性
+        // 匹对验证码(非激活代码)的正确性
     public int checkValidateCode(String code) {
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         Object vercode = attrs.getRequest().getSession().getAttribute("VERCODE_KEY");
@@ -200,8 +206,10 @@ public class RegisterController {
         //判断   激活有无过期 是否正确
         //validateCode=
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        //从邮箱链接中的request中取邮箱激活码和email
         String validateCode = attrs.getRequest().getParameter( "validateCode" );
         String email = attrs.getRequest().getParameter( "email" );
+        //从redis中取出validateCode(与email对应的邮箱激活代码)
         String code = redisTemplate.opsForValue().get( email );
         log.info( "验证邮箱为："+email+",邮箱激活码为："+code+",用户链接的激活码为："+validateCode );
         //判断是否已激活
