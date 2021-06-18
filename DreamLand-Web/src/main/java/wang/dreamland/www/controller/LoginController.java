@@ -35,6 +35,7 @@ public class LoginController extends BaseController{
             return "../login";
         }
     }
+    //匹配验证码的正确性
     public int checkValidateCode(String code){
         Object vercode=getRequest().getSession().getAttribute("VERCODE_KEY");
         if(null==vercode){
@@ -103,5 +104,14 @@ public class LoginController extends BaseController{
             return "../login";
         }
 
+    }
+    @RequestMapping("/loginout")
+    public String exit(Model model){
+        log.info("退出登录");
+        //清楚session 中用户信息
+        getSession().removeAttribute("user");
+        //让session失效
+        getSession().invalidate();
+        return "../login";
     }
 }

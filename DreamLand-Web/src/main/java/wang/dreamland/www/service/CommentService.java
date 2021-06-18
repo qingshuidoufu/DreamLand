@@ -3,6 +3,7 @@ package wang.dreamland.www.service;
 import wang.dreamland.www.entity.Comment;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 12903 on 2018/4/16.
@@ -45,7 +46,7 @@ public interface CommentService {
     /**
      * 根据文章id和子评论ids查询所有子评论
      */
-    List<Comment> findAllChildrenComment(Long content_id, String children);
+    List<Comment> findAllChildrenComment(Map<String,String> map);
 
 
     /**

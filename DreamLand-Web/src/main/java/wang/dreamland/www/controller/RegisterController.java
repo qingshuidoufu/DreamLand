@@ -20,6 +20,7 @@ import wang.dreamland.www.service.RoleService;
 import wang.dreamland.www.service.RoleUserService;
 import wang.dreamland.www.service.UserService;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -35,7 +36,7 @@ public class RegisterController {
    /* @Autowired
     private RoleService roleService;*/
     @Autowired// redis数据库操作模板
-    private RedisTemplate<String, String> redisTemplate;// jdbcTemplate HibernateTemplate
+    private RedisTemplate<String,String> redisTemplate;// jdbcTemplate HibernateTemplate
   /*  @Autowired
     private RoleUserService roleUserService;*/
 

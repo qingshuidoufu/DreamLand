@@ -15,9 +15,9 @@ public class Upvote {
     private Long contentId;
 
     private String ip;
-
+    //点赞
     private String upvote;
-
+    //点踩
     private String downvote;
 
     private Date upvoteTime;
@@ -63,6 +63,7 @@ public class Upvote {
     }
 
     public String getDownvote() {
+        //标记点踩
         return downvote;
     }
 

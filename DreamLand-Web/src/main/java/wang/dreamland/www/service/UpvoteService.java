@@ -1,7 +1,8 @@
 package wang.dreamland.www.service;
 
-import wang.dreamland.www.entity.Upvote;
+import org.springframework.stereotype.Service;
 
+import wang.dreamland.www.entity.Upvote;
 public interface UpvoteService {
 //    根据用户id和文章id查询
     Upvote findByUidAndConId(Upvote upvote);
