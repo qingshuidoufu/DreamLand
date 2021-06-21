@@ -1,5 +1,7 @@
 package wang.dreamland.www.entity;
 
+import wang.dreamland.www.common.DateUtils;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,6 +37,10 @@ public class UserContent {
 
     @Transient
     private Integer num;
+    @Transient
+    public String getFormatDate(){
+        return DateUtils.formatDate(getRptTime(),"yyyy-MM-dd HH:mm:ss");
+    }
 
     public Long getId() {
         return id;

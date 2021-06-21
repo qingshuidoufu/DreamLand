@@ -123,7 +123,10 @@ public class BaseController {
         }
         return request.getRemoteAddr();
     }
-
+    public Page<UserContent> findAll(Integer pageNum, Integer pageSize){
+        Page<UserContent> page = userContentService.findAll(pageNum ,pageSize);
+        return page;
+    }
 
 }
 

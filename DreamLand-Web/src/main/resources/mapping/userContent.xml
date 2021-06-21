@@ -15,4 +15,8 @@
         <result property="num" column="num" />
     </resultMap>
 
+    <insert id="inserContent" parameterType="userContent" useGeneratedKeys="true" keyProperty="id">
+        insert into user_content(id, u_id, title, category, content, personal,rpt_time ,img_url,nick_name,upvote,downvote,comment_num) values(#{id}, #{uId},#{title}, #{category},#{content},#{personal},#{rptTime}, #{imgUrl},#{nickName},#{upvote},#{downvote},#{commentNum})
+    </insert>
+
 </mapper>

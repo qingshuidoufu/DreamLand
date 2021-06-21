@@ -1,5 +1,6 @@
 package wang.dreamland.www.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import wang.dreamland.www.common.PageHelper;
 import wang.dreamland.www.entity.User;
 import wang.dreamland.www.entity.UserContent;
+import wang.dreamland.www.service.CommentService;
+import wang.dreamland.www.service.UpvoteService;
 import wang.dreamland.www.service.UserContentService;
 
 import java.util.HashMap;
@@ -21,6 +24,12 @@ public class PersonalController extends BaseController {
     private final static Logger log = Logger.getLogger(PersonalController.class);
     @Autowired
     private UserContentService userContentService;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private UpvoteService upvoteService;
     /**
      * 初始化个人主页数据
      * @param model
@@ -31,41 +40,46 @@ public class PersonalController extends BaseController {
      */
     @RequestMapping("/list")
     public String findList(Model model, @RequestParam(value = "id",required = false) String id,
-                           @RequestParam(value = "pageNum",required = false) Integer pageNum ,
-                           @RequestParam(value = "pageSize",required = false) Integer pageSize){
-        User user =(User) getSession().getAttribute("user");
-        //用于查询公开的梦
-        UserContent content=new UserContent();
-        //用于查询私密的梦
-        UserContent uc=new UserContent();
-        if(user!=null){//用户已登录
-            model.addAttribute("user",user);
-            content.setuId(user.getId());
+                           @RequestParam(value = "manage",required = false) String manage ,
+                           @RequestParam(value = "pageNum",required = false) Integer pageNum,
+                           @RequestParam(value = "pageSize",required = false) Integer pageSize) {
+        User user = (User)getSession().getAttribute("user");
+        UserContent content = new UserContent();
+        UserContent uc = new UserContent();
+        if(user!=null){
+            model.addAttribute( "user",user );
+            content.setuId( user.getId() );
             uc.setuId(user.getId());
         }else{
             return "../login";
         }
         log.info("初始化个人主页信息");
-        //查询梦分类
-        List<UserContent> categorys=userContentService.findCategoryByUid(user.getId());
-        model.addAttribute("categorys",categorys);
-        //发布的梦 不包含私密梦
-        content.setPersonal("0");
-        pageSize=4; //默认每页显示4条数据
-        PageHelper.Page<UserContent> page=findAll(content,pageNum,pageSize);//查询出来的内容分页
 
-        model.addAttribute("page",page);
+        if(StringUtils.isNotBlank(manage)){
+            model.addAttribute("manage",manage);
+        }
+
+        //查询梦分类
+        List<UserContent> categorys = userContentService.findCategoryByUid(user.getId());
+        model.addAttribute( "categorys",categorys );
+        //发布的梦 不含私密梦
+        content.setPersonal("0");
+        pageSize = 10; //默认每页显示10条数据
+        PageHelper.Page<UserContent> page =  findAll(content,pageNum,  pageSize); //分页
+
+        model.addAttribute( "page",page );
 
         //查询私密梦
         uc.setPersonal("1");
-        PageHelper.Page<UserContent> page2=findAll(uc,pageNum,pageSize);
-        model.addAttribute("page2",page2);
+        PageHelper.Page<UserContent> page2 =  findAll(uc,pageNum,  pageSize);
+        model.addAttribute( "page2",page2 );
 
         //查询热梦
-        UserContent uct=new UserContent();
+        pageSize = 15; //默认每页显示15条数据
+        UserContent uct = new UserContent();
         uct.setPersonal("0");
-        PageHelper.Page<UserContent> hotPage=findAllByUpvote(uct,pageNum,pageSize);
-        model.addAttribute("hotPage",hotPage);
+        PageHelper.Page<UserContent> hotPage =  findAllByUpvote(uct,pageNum,  pageSize);
+        model.addAttribute( "hotPage",hotPage );
         return "personal/personal";
     }
     /**
@@ -84,7 +98,7 @@ public class PersonalController extends BaseController {
             map.put("pageCate", "fail");
             return map;
         }
-        pageSize = 4;//默认显示4条数据
+        pageSize = 10;//默认显示4条数据
         PageHelper.Page<UserContent> pageCate=userContentService.findByCategory(category,user.getId(),pageNum,pageSize);
         map.put("pageCate",pageCate);
         return map;
@@ -105,7 +119,7 @@ public class PersonalController extends BaseController {
         map.put("page2","fail");
         return map;
     }
-    pageSize=4;//默认煤业显示4条数据
+    pageSize=10;//默认煤业显示4条数据
     PageHelper.Page<UserContent> page=userContentService.findPersonal(user.getId(),pageNum,pageSize);
     map.put("page2",page);
     return map;
@@ -129,12 +143,24 @@ public class PersonalController extends BaseController {
             map.put("hotPage","fail");
             return map;
         }
-        pageSize = 4; //默认每页显示4条数据
+        pageSize = 15; //默认每页显示4条数据
         UserContent uct = new UserContent();
         uct.setPersonal("0");
         PageHelper.Page<UserContent> hotPage =  findAllByUpvote(uct,pageNum,  pageSize);
         map.put("hotPage",hotPage);
         return map;
+    }
+    @RequestMapping("/deleteContent")
+    public String deleteContent(Model model, @RequestParam(value = "cid",required = false) Long cid) {
+        //判断用户是否登录,未登录跳转到登录页面
+        User user = (User)getSession().getAttribute("user");
+        if(user==null) {
+            return "../login";
+        }
+        commentService.deleteByContentId(cid); //删评论
+        upvoteService.deleteByContentId(cid); //删点赞
+        userContentService.deleteById(cid);  //删内容
+        return "redirect:/list?manage=manage";  //重定向到个人页面
     }
 
 }

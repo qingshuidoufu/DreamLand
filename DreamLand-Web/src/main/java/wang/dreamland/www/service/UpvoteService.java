@@ -12,5 +12,6 @@ public interface UpvoteService {
     Upvote getByUid(Upvote upvote);
 //    更新upvote
     void update(Upvote upvote);
-
+    // 删除点赞
+    void deleteByContentId(Long cid);
 }

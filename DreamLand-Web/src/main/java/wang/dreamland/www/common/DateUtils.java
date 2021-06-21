@@ -19,5 +19,18 @@ public class DateUtils {
         }
         return date;
     }
-
+    /**
+     * 将日期根据指定根式转成字符串
+     * @param date
+     * @param format
+     * @return
+     */
+    public static String formatDate(Date date,String format){
+        if(date == null){
+            return null;
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        String dateString = formatter.format(date);
+        return dateString;
+    }
 }

@@ -188,11 +188,15 @@
                                      <img src="${cont.imgUrl}">
                                 </a>
                             </div>
-                            <a href="#" target="_blank">
-                                <h2 class="author-h2">
+
+                            <div class="author-h2">
+                                <div style="float: left;font-size: 15px;color: #9b8878">
                                         ${cont.nickName}
-                                </h2>
-                            </a>
+                                </div>
+                                <div style="float: left;margin-left: 10px;color: grey;margin-top: 2px;font-size: 12px">
+                                        ${cont.formatDate}
+                                </div>
+                            </div>
                         </div>
 
                         <h2>${cont.title}</h2>
@@ -273,7 +277,7 @@
                     <c:if test="${page.pageNum > 1}">
                         <li class="previous"><a href="${ctx}/index_list?pageNum=${page.pageNum-1}&&id=${user.id}">« 上一页</a></li>
                     </c:if>
-                    <c:forEach begin="1" end="${page.pages}" var="pn">
+                    <c:forEach begin="${page.startPage}" end="${page.endPage}" var="pn">
                         <c:if test="${page.pageNum==pn}">
                             <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                         </c:if>

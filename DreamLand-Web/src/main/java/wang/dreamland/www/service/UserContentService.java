@@ -78,5 +78,17 @@ public interface UserContentService {
      * @return
      */
     PageHelper.Page<UserContent> findPersonal(Long id, Integer pageNum, Integer pageSize);
+    /**
+     * 根据文章id删除文章
+     * @param cid
+     */
+    void deleteById(Long cid);
+    /**
+     * 根据发布时间倒排序并分页
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageHelper.Page<UserContent> findAll(Integer pageNum, Integer pageSize);
 }
 

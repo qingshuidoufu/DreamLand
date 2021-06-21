@@ -402,7 +402,7 @@
         </div>
     </div>
 
-    <div class="dreamland-see">
+    <div class="dreamland-see" id="dreamland-see" style="margin-top: 510px">
         <div class="customer" style="height: 40px;background-color:#262626;line-height: 40px ">
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">关注(8人)</font>
         </div>
@@ -676,7 +676,7 @@
         <ul style="font-size: 12px" id="release-dreamland-ul">
             <c:forEach var="cont" items="${page.result}" varStatus="i">
                 <li class="dreamland-fix">
-                    <a>${cont.title}</a>
+                    <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
                     <span class="bar-read">评论 (${cont.commentNum})</span>
                     <span class="bar-commend">${cont.upvote}人阅读</span>
 
@@ -696,7 +696,7 @@
                 <c:if test="${page.pageNum > 1}">
                     <li class="previous" id=""><a onclick="changeToActive('category_x',null,${page.pageNum - 1})">« 上一页</a></li>
                 </c:if>
-                <c:forEach begin="1" end="${page.pages}" var="pn">
+                <c:forEach begin="${page.startPage}" end="${page.endPage}" var="pn">
                     <c:if test="${page.pageNum==pn}">
                         <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                     </c:if>
@@ -720,11 +720,9 @@
         <ul style="font-size: 12px" id="update-dreamland-ul">
             <c:forEach var="cont" items="${page.result}" varStatus="i">
                 <li class="dreamland-fix">
-                    <a>${cont.title}</a>
-                    <span class="bar-delete">删除</span>
-                    <span class="bar-update">修改</span>
-
-
+                    <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
+                    <a href="${ctx}/deleteContent?cid=${cont.id}"><span class="bar-delete">删除</span></a>
+                    <a href="${ctx}/writedream?cid=${cont.id}"><span class="bar-update">修改</span></a>
                     <hr/>
                 </li>
             </c:forEach>
@@ -740,12 +738,12 @@
                 <c:if test="${page.pageNum > 1}">
                     <li class="previous"><a onclick="turnPage(${page.pageNum-1})">« 上一页</a></li>
                 </c:if>
-                <c:forEach begin="1" end="${page.pages}" var="pn">
+                <c:forEach begin="${page.startPage}" end="${page.endPage}" var="pn">
                     <c:if test="${page.pageNum==pn}">
                         <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                     </c:if>
                     <c:if test="${page.pageNum!=pn}">
-                        <li ><a onclick="turnPage(${pn})">${pn}</a></li>
+                        <li ><a onclick="changeToActive('category_x',null,${pn})">${pn}</a></li>
                     </c:if>
                 </c:forEach>
 
@@ -766,9 +764,10 @@
         <ul style="font-size: 12px" id="personal-dreamland-ul">
             <c:forEach var="cont" items="${page2.result}" varStatus="i">
                 <li class="dreamland-fix">
-                    <a>${cont.title}</a>
-                    <span class="bar-delete">删除</span>
-                    <span class="bar-update">修改</span>
+                    <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
+                    <a href="${ctx}/deleteContent?cid=${cont.id}"><span class="bar-delete">删除</span></a>
+                    <a href="${ctx}/writedream?cid=${cont.id}"><span class="bar-update">修改</span></a>
+
                     <hr/>
                 </li>
             </c:forEach>
@@ -783,7 +782,7 @@
                 <c:if test="${page2.pageNum > 1}">
                     <li class="previous"><a onclick="personTurnPage(${page2.pageNum-1})">« 上一页</a></li>
                 </c:if>
-                <c:forEach begin="1" end="${page2.pages}" var="pn">
+                <c:forEach begin="${page2.startPage}" end="${page2.endPage}" var="pn">
                     <c:if test="${page2.pageNum==pn}">
                         <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                     </c:if>
@@ -816,7 +815,7 @@
             <ul style="font-size: 12px" id="hot-dreamland-ul">
                 <c:forEach var="cont" items="${hotPage.result}" varStatus="i">
                     <li class="dreamland-fix">
-                        <a>${cont.title}</a>
+                        <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
                         <span class="bar-read">评论 (${cont.commentNum} )</span>
                         <span class="bar-commend">${cont.upvote}人阅读</span>
 
@@ -837,12 +836,12 @@
                 <c:if test="${hotPage.pageNum > 1}">
                     <li class="previous"><a onclick="hotTurnPage(${hotPage.pageNum-1})">« 上一页</a></li>
                 </c:if>
-                <c:forEach begin="1" end="${hotPage.pages}" var="pn">
-                    <c:if test="${hotPage.pageNum==pn}">
+                <c:forEach begin="${hotPage.startPage}" end="${hotPage.endPage}" var="pn">
+                    <c:if test="${page.pageNum==pn}">
                         <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                     </c:if>
-                    <c:if test="${hotPage.pageNum!=pn}">
-                        <li ><a onclick="hotTurnPage(${pn})">${pn}</a></li>
+                    <c:if test="${page.pageNum!=pn}">
+                        <li ><a onclick="turnPage(${pn})">${pn}</a></li>
                     </c:if>
                 </c:forEach>
 
@@ -980,6 +979,17 @@
 
 </body>
 <script>
+    //页面加载完成函数
+    $(function () {
+        var num = "${categorys.size()}";
+        var tomVal = document.getElementById("dreamland-see").style.marginTop;
+        var hgt = parseInt(num)*40+parseInt(tomVal.split("px")[0]);
+        document.getElementById("dreamland-see").style.marginTop = hgt + "px";
+        var val = "${manage}";
+        if(val=="manage"){
+            manage_dreamland();
+        }
+    });
     //梦分类点击事件
     function changeToActive(id,category,pageNum) {
         var ulist_id = "";

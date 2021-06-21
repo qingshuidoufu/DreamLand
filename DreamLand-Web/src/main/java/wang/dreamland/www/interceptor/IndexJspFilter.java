@@ -2,6 +2,7 @@ package wang.dreamland.www.interceptor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import tk.mybatis.mapper.entity.Example;
 import wang.dreamland.www.common.PageHelper;
 import wang.dreamland.www.dao.UserContentMapper;
 import wang.dreamland.www.dao.UserMapper;
@@ -27,7 +28,9 @@ public class IndexJspFilter implements Filter{
         //获取userContentsMapper操作数据库的对象
         UserContentMapper userContentMapper=ctx.getBean(UserContentMapper.class);
         PageHelper.startPage(null,null);//开始分页，默认分一页7个
-        List<UserContent> list=userContentMapper.select(null);//查出所有内容,进行数据的第二次封装,mybatis拦截了(PageHelper是拦截类)后封装到了page中的result
+        Example e=new Example(UserContent.class);
+        e.setOrderByClause("rpt_time DESC"); //设置按照时间降序排序
+        List<UserContent> list=userContentMapper.selectByExample(e);//查出所有内容,进行数据的第二次封装,mybatis拦截了(PageHelper是拦截类)后封装到了page中的result
         PageHelper.Page endPage=PageHelper.endPage();//分页结果
         servletRequest.setAttribute("page",endPage);//然后将 Page 对象放在 request 域中，前台可通过 EL 表达式 ${page}
         filterChain.doFilter(servletRequest,servletResponse);
