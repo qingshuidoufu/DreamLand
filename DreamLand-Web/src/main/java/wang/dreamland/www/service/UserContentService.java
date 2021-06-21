@@ -52,5 +52,31 @@ public interface UserContentService {
      * @return
      */
     void updateById(UserContent content);
+
+    /**
+     * 根据用户id查询出梦分类
+     * @param uid
+     * @return
+     */
+    List<UserContent> findCategoryByUid(Long uid);
+
+    /**
+     * 根据文章分类查询出所有文章
+     * @param category
+     * @param uid
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageHelper.Page<UserContent> findByCategory(String category,Long uid,Integer pageNum,Integer pageSize);
+
+    /**
+     * 根据用户id查询所有文章私密并分页
+     * @param id
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageHelper.Page<UserContent> findPersonal(Long id, Integer pageNum, Integer pageSize);
 }
 

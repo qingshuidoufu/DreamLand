@@ -7,6 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import wang.dreamland.www.entity.Comment;
 import wang.dreamland.www.entity.UserContent;
 import wang.dreamland.www.service.CommentService;
+import wang.dreamland.www.service.UserContentService;
 import wang.dreamland.www.service.UserService;
 
 import java.util.HashMap;
@@ -20,6 +21,9 @@ import java.util.Map;
 public class TestDao  {
     @Autowired
     private CommentService commentService;
+
+    @Autowired
+   private UserContentService userContentService;
 
     //测试通过文章id查找所有评论和相关的user
     @Test
@@ -64,6 +68,21 @@ public class TestDao  {
         for (Comment comment : comments) {
             System.out.println(comment.toString());
         }
+    }
+
+    /**
+     * 测试根据用户id查询分类
+     */
+    @Test
+    public void testFindCategoryByUid(){
+        System.out.println(userContentService.findCategoryByUid(1l));
+    }
+    /**
+     * 测试根据分类实现分页展示
+     */
+    @Test
+    public void testFindCategory(){
+        System.out.println(userContentService.findCategoryByUid(1l));
     }
 
 

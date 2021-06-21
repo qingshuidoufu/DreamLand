@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.dreamland.www.dao.UserContentMapper">
+
+    <select id="findCategoryByUid"  resultMap="categoryMap">
+        select category,count(1) as num from user_content where u_id = #{uid} and personal = '0' group by category order by num desc
+    </select>
+
+    <resultMap type="wang.dreamland.www.entity.UserContent" id="categoryMap">
+        <!-- property 表示wang.dreamland.www.entity.UserContent； column 表示表中的列名 -->
+        <id property="id" column="id" />
+        <result property="category" column="category" />
+        <result property="num" column="num" />
+    </resultMap>
+
+</mapper>
