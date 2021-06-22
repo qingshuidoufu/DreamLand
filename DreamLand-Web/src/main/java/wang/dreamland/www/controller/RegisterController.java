@@ -21,6 +21,7 @@ import wang.dreamland.www.service.RoleUserService;
 import wang.dreamland.www.service.UserService;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -29,7 +30,7 @@ import java.util.concurrent.TimeUnit;
  * Created by 12903 on 2018/4/19.
  */
 @Controller
-public class RegisterController {
+public class RegisterController extends BaseController {
     private final static Logger log = Logger.getLogger(RegisterController.class);
     @Autowired
     private UserService userService;
@@ -132,7 +133,7 @@ public class RegisterController {
                              @RequestParam(value = "password", required = false) String password,
                              @RequestParam(value = "phone", required = false) String phone,
                              @RequestParam(value = "nickName", required = false) String nickname,
-                             @RequestParam(value = "code", required = false) String code) {
+                             @RequestParam(value = "code", required = false) String code) throws IOException {
 
         log.debug("注册...");
         //验证码空白
@@ -174,7 +175,8 @@ public class RegisterController {
             userService.regist(user);
 
             log.info("注册成功");
-            SendEmail.sendEmailMessage(email, validateCode);
+
+            SendEmail.sendEmailMessage(getIpAndPort(),email, validateCode);
             //定义回传的信息, 邮箱地址加邮箱激活代码
             String message = email + "," + validateCode;
             model.addAttribute("message", message);
@@ -248,12 +250,12 @@ public class RegisterController {
 
     @RequestMapping("/sendEmail")
     @ResponseBody
-    public  Map<String,Object> sendEmail(Model model) {
+    public  Map<String,Object> sendEmail(Model model) throws IOException {
         Map map = new HashMap<String,Object>(  );
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         String validateCode = attrs.getRequest().getParameter( "validateCode" );
         String email = attrs.getRequest().getParameter( "email" );
-        SendEmail.sendEmailMessage(email,validateCode);
+        SendEmail.sendEmailMessage(getIpAndPort(),email,validateCode);
         map.put( "success","success" );
         return map;
     }

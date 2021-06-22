@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public class SendEmail {
     private final static Logger log = Logger.getLogger( SendEmail.class);
-    public static void sendEmailMessage(String email,String validateCode) {
+    public static void sendEmailMessage(String ipAndPort,String email,String validateCode) {
        try {
            String host = "smtp.qq.com";   //发件人使用发邮件的电子信箱服务器
            String from = "792649900@qq.com";    //发邮件的出发地（发件人的信箱）
@@ -22,11 +22,16 @@ public class SendEmail {
            // Get system properties
            Properties props = System.getProperties();
 
-           // Setup mail server
+           //使用465端口和25端口就只有配置文件不一样
+           props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+           props.put("mail.smtp.port", "465");
+           props.put("mail.smtp.socketFactory.port", "465");
            props.put("mail.smtp.host", host);
+           props.put("mail.smtp.auth", "true");
+           props.put("mail.user", from);
+           props.put("mail.password", "xqjagrdusendbgaa");
 
-           // Get session
-           props.put("mail.smtp.auth", "true"); //这样才能通过验证
+
 
            MyAuthenticator myauth = new MyAuthenticator(from, "xqjagrdusendbgaa");
            Session session = Session.getDefaultInstance(props, myauth);
@@ -46,9 +51,10 @@ public class SendEmail {
 
            // Set the subject
            message.setSubject("梦境网激活邮件通知");
+           log.info("now ipAndPort is:"+ipAndPort);
 
            // Set the content
-           message.setContent( "<a href=\"http://localhost:8080/activecode?email="+email+"&validateCode="+validateCode+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
+           message.setContent( "<a href=\"http://"+ipAndPort+"/activecode?email="+email+"&validateCode="+validateCode+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
            message.saveChanges();
 
            Transport.send(message);

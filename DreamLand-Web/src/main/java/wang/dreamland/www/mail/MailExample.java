@@ -9,7 +9,8 @@ public class MailExample {
     public static void main (String args[]) throws Exception {
         String email = "";
         String validateCode = "";
-        SendEmail.sendEmailMessage(email,validateCode);
+        String ipAndPort="";
+        SendEmail.sendEmailMessage(ipAndPort,email,validateCode);
 
     }
 }
