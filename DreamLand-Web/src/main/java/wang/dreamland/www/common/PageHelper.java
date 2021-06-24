@@ -356,16 +356,24 @@ public class PageHelper implements Interceptor {
 				startPage = 1;//页码修复
 			}
 
-			System.out.println(startPage +"和" +endPage);
+			System.out.println("开始页面:"+startPage+"结束页面:"+endPage);
 
 			this.total = total;
 		}
 
 		@Override
 		public String toString() {
-			return "Page{" + "pageNum=" + pageNum + ", pageSize=" + pageSize
-					+ ", startRow=" + startRow + ", endRow=" + endRow
-					+ ", total=" + total + ", pages=" + pages + '}';
+			return "Page{" +
+					"pageNum=" + pageNum +
+					", pageSize=" + pageSize +
+					", startRow=" + startRow +
+					", endRow=" + endRow +
+					", total=" + total +
+					", pages=" + pages +
+					", result=" + result +
+					", startPage=" + startPage +
+					", endPage=" + endPage +
+					'}';
 		}
 	}
 }

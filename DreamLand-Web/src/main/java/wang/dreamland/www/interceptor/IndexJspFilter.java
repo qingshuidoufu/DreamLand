@@ -18,6 +18,14 @@ public class IndexJspFilter implements Filter{
 
     }
 
+    /**
+     * 给首次进入网站设置过滤器,过滤后调用分页插件拦截器,拦截sql语句后封装刀到page中
+     * @param servletRequest
+     * @param servletResponse
+     * @param filterChain
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("------自定义过滤器-------");
@@ -28,10 +36,10 @@ public class IndexJspFilter implements Filter{
         //获取userContentsMapper操作数据库的对象
         UserContentMapper userContentMapper=ctx.getBean(UserContentMapper.class);
         PageHelper.startPage(null,null);//开始分页，默认分一页7个
-        Example e=new Example(UserContent.class);
-        e.setOrderByClause("rpt_time DESC"); //设置按照时间降序排序
-        List<UserContent> list=userContentMapper.selectByExample(e);//查出所有内容,进行数据的第二次封装,mybatis拦截了(PageHelper是拦截类)后封装到了page中的result
+        System.out.println("------分页开始:拦截器启动-----");
+        List<UserContent> list = userContentMapper.findByJoin(null);//查出所有内容,进行数据的第二次封装,mybatis拦截了(PageHelper是拦截类)后封装到了endPage中的result
         PageHelper.Page endPage=PageHelper.endPage();//分页结果
+        System.out.println("------首页分页结束,Page为:-----"+endPage);
         servletRequest.setAttribute("page",endPage);//然后将 Page 对象放在 request 域中，前台可通过 EL 表达式 ${page}
         filterChain.doFilter(servletRequest,servletResponse);
     }

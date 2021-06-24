@@ -156,22 +156,22 @@
     </div>
 
 </nav>
-    <!-- -->
+<!-- -->
 <div style="margin-left: 100px;margin-top: 80px;" class="main-content">
     <div style="width: 300px;height: 600px;background-color:#D1D1D1 ;float: left">
         <div>
-        <div class="personal-image" style="width: 300px;height: 240px;">
+            <div class="personal-image" style="width: 300px;height: 240px;">
 
                 <a  title="${user.nickName}" class="avatar"><img id="img-change"  src="${user.imgUrl}" onclick="selectImg();" width="100" height="100" style="border-radius:50%;margin-top: 60px;margin-left: 90px"></a>
                 <form id="upload-form"   style="width:auto;" >
                     <input type="file"  id="change-img" name="uploadImg" onchange="changeImg();" style="display:none;">
                 </form>
 
-            <div style="float: left;margin-left: 120px;margin-top: 10px;font-size: 18px">
-                ${user.nickName}
-            </div>
+                <div style="float: left;margin-left: 120px;margin-top: 10px;font-size: 18px">
+                    ${user.nickName}
+                </div>
 
-        </div>
+            </div>
 
         </div>
 
@@ -182,9 +182,9 @@
 
             <div id="base" onclick="base_set();" style="background-color: white" >
                 <div style="width:100%; height:2px; border-top:1px solid #F2F2F2; clear:both;"></div>
-            <div  style="font-size: 18px;text-align: center;height: 60px;line-height: 60px" >
-                <i class="icon-x icon-spin icon-cog"></i>&nbsp;基本设置
-            </div>
+                <div  style="font-size: 18px;text-align: center;height: 60px;line-height: 60px" >
+                    <i class="icon-x icon-spin icon-cog"></i>&nbsp;基本设置
+                </div>
                 <div style="width:100%; height:2px; border-top:1px solid #F2F2F2; clear:both;"></div>
             </div>
 
@@ -192,15 +192,15 @@
 
                 <div style="font-size: 18px;text-align: center;height: 60px;line-height: 60px">
                     <i class="icon icon-tags"></i> 账号设置
-               </div>
+                </div>
                 <div style="width:100%; height:2px; border-top:1px solid #F2F2F2; clear:both;"></div>
             </div>
 
             <div id="binding"   onclick="binding_set();">
 
-            <div style="font-size: 18px;text-align: center;height: 60px;line-height: 60px" >
-                <i class="icon icon-link"></i>&nbsp;绑定设置
-            </div>
+                <div style="font-size: 18px;text-align: center;height: 60px;line-height: 60px" >
+                    <i class="icon icon-link"></i>&nbsp;绑定设置
+                </div>
                 <div style="width:100%; height:2px; border-top:1px solid #F2F2F2; clear:both;"></div>
             </div>
         </div>
@@ -214,8 +214,8 @@
 
     <div style="width: 800px;height: 600px;background-color: white;float: left;">
         <div style="width: 100%;font-size: 22px;margin-top: 80px;margin-left: 60px">
-           <strong id="set_title">基本设置</strong>
-          <hr>
+            <strong id="set_title">基本设置</strong>
+            <hr>
         </div>
 
 
@@ -230,7 +230,7 @@
 
 
                     性别：  <input type="radio" name="sex" value="0" checked <c:if test="${userInfo.sex eq '0'}"> checked="checked"</c:if>/>男 &nbsp;&nbsp;
-                            <input type="radio" name="sex" value="1" <c:if test="${userInfo.sex eq '1'}"> checked="checked"</c:if>/>女<br/><br/>
+                    <input type="radio" name="sex" value="1" <c:if test="${userInfo.sex eq '1'}"> checked="checked"</c:if>/>女<br/><br/>
 
                     生日： <input  style="width: 198px;float: right;margin-right: 484px;margin-top: -4px" class="form-control form-date"  readonly="readonly" placeholder="选择一个日期：yyyy-MM-dd" type="text" id="txtEndDate"  name="birthday" value="${userInfo.formateBirthday==null?"":userInfo.formateBirthday}"/><br/><br/>
 
@@ -246,10 +246,10 @@
 
             <div>
                 <form>
-                账号：${user.email}<br/><br/>
+                    账号：${user.email}<br/><br/>
                     密码：******  <a href="${ctx}/repassword"><span id="password_span" style="color: grey;margin-left: 142px" onmouseover="changeColor(this);" onmouseout="backColor(this);" >修改</span></a><br/><br/>
                     <c:if test="${not empty user.phone}">
-                    手机号：${user.phone.substring(0,3)}****${user.phone.substring(7,11)}  <span id="phone_span" style="color: grey;margin-left: 68px" onmouseover="changeColor(this);" onmouseout="backColor(this);">修改</span>
+                        手机号：${user.phone.substring(0,3)}****${user.phone.substring(7,11)}  <span id="phone_span" style="color: grey;margin-left: 68px" onmouseover="changeColor(this);" onmouseout="backColor(this);">修改</span>
                     </c:if>
                     <c:if test="${empty user.phone}">
                         手机号：<span id="phone_span" style="color: grey;margin-left: 180px" onmouseover="changeColor(this);" onmouseout="backColor(this);">修改</span>
@@ -282,12 +282,12 @@
 
                     <br/><br/>
                     <c:if test="${empty qq}">
-                    <div style="float: left;">
-                        Q Q：未绑定
-                    </div>
-                    <div style="float: left;margin-left: 150px" onclick="binding_qq();">
-                        <span id="qq_span" style="color: grey"  onmouseover="changeColor(this);" onmouseout="backColor(this);">立即绑定</span>
-                    </div>
+                        <div style="float: left;">
+                            Q Q：未绑定
+                        </div>
+                        <div style="float: left;margin-left: 150px" onclick="binding_qq();">
+                            <span id="qq_span" style="color: grey"  onmouseover="changeColor(this);" onmouseout="backColor(this);">立即绑定</span>
+                        </div>
                     </c:if>
                     <c:if test="${not empty qq}">
                         <div style="float: left;">
@@ -300,12 +300,12 @@
 
                     <br/><br/>
                     <c:if test="${empty weibo}">
-                    <div style="float: left;">
-                        微博：未绑定
-                    </div>
-                    <div style="float: left;margin-left: 150px">
-                        <span id="wb_span" style="color: grey" onmouseover="changeColor(this);" onmouseout="backColor(this);">立即绑定</span>
-                    </div>
+                        <div style="float: left;">
+                            微博：未绑定
+                        </div>
+                        <div style="float: left;margin-left: 150px">
+                            <span id="wb_span" style="color: grey" onmouseover="changeColor(this);" onmouseout="backColor(this);">立即绑定</span>
+                        </div>
                     </c:if>
                     <c:if test="${not empty weibo}">
                         <div style="float: left;">
@@ -453,37 +453,37 @@
             format: "yyyy-mm-dd"
         });
 
-function base_set() {
-    document.getElementById("base").style.backgroundColor = "white";
-    document.getElementById("account").style.backgroundColor = "#D1D1D1";
-    document.getElementById("binding").style.backgroundColor = "#D1D1D1 ";
+    function base_set() {
+        document.getElementById("base").style.backgroundColor = "white";
+        document.getElementById("account").style.backgroundColor = "#D1D1D1";
+        document.getElementById("binding").style.backgroundColor = "#D1D1D1 ";
 
-    document.getElementById("set_title").innerHTML = "基本设置";
+        document.getElementById("set_title").innerHTML = "基本设置";
 
-    document.getElementById("base_content").style.display = "";
-    document.getElementById("account_content").style.display = "none";
-    document.getElementById("binding_content").style.display = "none";
+        document.getElementById("base_content").style.display = "";
+        document.getElementById("account_content").style.display = "none";
+        document.getElementById("binding_content").style.display = "none";
 
-}
+    }
 
-function account_set() {
-    document.getElementById("base").style.backgroundColor = "#D1D1D1";
-    document.getElementById("account").style.backgroundColor = "white";
-    document.getElementById("binding").style.backgroundColor = "#D1D1D1 ";
+    function account_set() {
+        document.getElementById("base").style.backgroundColor = "#D1D1D1";
+        document.getElementById("account").style.backgroundColor = "white";
+        document.getElementById("binding").style.backgroundColor = "#D1D1D1 ";
 
-    document.getElementById("set_title").innerHTML = "账号设置";
+        document.getElementById("set_title").innerHTML = "账号设置";
 
-    document.getElementById("base_content").style.display = "none";
-    document.getElementById("account_content").style.display = "";
-    document.getElementById("binding_content").style.display = "none";
-}
+        document.getElementById("base_content").style.display = "none";
+        document.getElementById("account_content").style.display = "";
+        document.getElementById("binding_content").style.display = "none";
+    }
 
-function binding_set() {
-    document.getElementById("base").style.backgroundColor = "#D1D1D1";
-    document.getElementById("account").style.backgroundColor = "#D1D1D1";
-    document.getElementById("binding").style.backgroundColor = "white";
+    function binding_set() {
+        document.getElementById("base").style.backgroundColor = "#D1D1D1";
+        document.getElementById("account").style.backgroundColor = "#D1D1D1";
+        document.getElementById("binding").style.backgroundColor = "white";
 
-    document.getElementById("set_title").innerHTML = "绑定设置";
+        document.getElementById("set_title").innerHTML = "绑定设置";
 
         document.getElementById("base_content").style.display = "none";
         document.getElementById("account_content").style.display = "none";
@@ -491,57 +491,57 @@ function binding_set() {
     }
 
 
-function changeColor(changeSpan) {
-    changeSpan.style.color = "#9F79EE";
-}
-function backColor(backColor) {
-    backColor.style.color = "grey";
-}
-function saveUserInfo() {
-    $("#userInfo_form").submit();
-}
+    function changeColor(changeSpan) {
+        changeSpan.style.color = "#9F79EE";
+    }
+    function backColor(backColor) {
+        backColor.style.color = "grey";
+    }
+    function saveUserInfo() {
+        $("#userInfo_form").submit();
+    }
 
-//点击图片事件
-function selectImg() {
-    document.getElementById("change-img").click();
-}
+    //点击图片事件
+    function selectImg() {
+        document.getElementById("change-img").click();
+    }
 
-//图片选择后事件
-function changeImg() {
-    var formData = new FormData($( "#upload-form" )[0]);
-    $.ajax({
-        url: '/fileUpload' ,
-        type: 'POST',
-        data: formData,
-        async: false,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (data) {
-            var msg = data["error"];
-            if(msg==0){
-                //上传成功
-                var url = data["url"];
-                document.getElementById("img-change").src = url;
-                saveImg(url);
+    //图片选择后事件
+    function changeImg() {
+        var formData = new FormData($( "#upload-form" )[0]);
+        $.ajax({
+            url: '/fileUpload' ,
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                var msg = data["error"];
+                if(msg==0){
+                    //上传成功
+                    var url = data["url"];
+                    document.getElementById("img-change").src = url;
+                    saveImg(url);
+                }
+
             }
+        });
+    }
 
-        }
-    });
-}
-
-//保存个人头像
-function saveImg(url) {
-    $.ajax({
-        type:'post',
-        data: {"url":url},
-        url: '/saveImage' ,
-        dataType:'json',
-        success: function (data) {
-           alert(data["msg"]);
-        }
-    });
-}
+    //保存个人头像
+    function saveImg(url) {
+        $.ajax({
+            type:'post',
+            data: {"url":url},
+            url: '/saveImage' ,
+            dataType:'json',
+            success: function (data) {
+                alert(data["msg"]);
+            }
+        });
+    }
 
 </script>
 </html>
