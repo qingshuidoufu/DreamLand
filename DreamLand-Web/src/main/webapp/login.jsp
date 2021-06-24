@@ -35,7 +35,7 @@
 <div class="content">
     <!-- logo -->
     <div class="row">
-        <img src="images/2.gif">
+        <%--<img src="images/2.gif">--%>
     </div>
     <!--表单-->
     <div class="row" style="margin-top: 50px">
