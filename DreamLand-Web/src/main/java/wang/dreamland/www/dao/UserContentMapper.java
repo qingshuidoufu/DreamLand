@@ -27,4 +27,5 @@ public interface UserContentMapper  extends Mapper<UserContent> {
      * @return
      */
     List<UserContent> findByJoin(UserContent userContent);
+
 }

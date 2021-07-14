@@ -58,7 +58,11 @@ public class IndexJspController extends BaseController{
         }
         //调用BaseController中的findAll,实际上转给service,service查数据库再实现了分页功能,封装到Page中
         PageHelper.Page<UserContent> page =findAll(pageNum,pageSize);
+
+        UserContent topContent=userContentService.findById(31);
+        System.out.println(topContent);
         model.addAttribute("page",page);
+        model.addAttribute("topContent",topContent);
         return "../index";
     }
 

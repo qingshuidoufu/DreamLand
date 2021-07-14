@@ -23,6 +23,7 @@
             margin: 0;
             height:100%;
         }
+        .line_01{padding:0 20px 0;margin:20px 0;line-height:1px;border-left:200px solid #ddd;border-right:200px solid #ddd;text-align:center;}
         .stats-buttons  a{
             text-decoration:none;
         }
@@ -176,6 +177,94 @@
     <div id="content" class="row-fluid">
         <div class="col-md-9"  style="background-color: white;">
             <div id="content_col" class="content-main">
+
+                    <!-- 置顶博客开始 -->
+
+                    <div class="content-text">
+
+                        <div class="author clearfix">
+                            <div>
+                                <a href="#" target="_blank" rel="nofollow" style="height: 35px">
+                                     <img src="${topContent.imgUrl}">
+                                </a>
+                            </div>
+
+                            <div class="author-h2">
+                                <div style="float: left;font-size: 15px;color: #9b8878">
+                                    ${topContent.nickName}
+                                </div>
+                                <div style="float: left;margin-left: 10px;color: grey;margin-top: 2px;font-size: 12px">
+                                    ${topContent.formatDate}
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>${topContent.title}</h2>
+                            ${topContent.content}
+                        <div style="height: 5px"></div>
+                        <div class="stats">
+                            <!-- 笑脸、评论数等 -->
+                            <span class="stats-vote"><i id="${topContent.id}" class="number">${topContent.upvote}</i> 赞</span>
+                            <span class="stats-comments">
+                    <span class="dash"> · </span>
+                         <a  onclick="reply(${topContent.id},${topContent.uId});">
+                              <i class="number" id="comment_num_${topContent.id}">${topContent.commentNum}</i> 评论
+                          </a>
+                    </span>
+                        </div>
+                        <div style="height: 5px"></div>
+                        <div class="stats-buttons bar clearfix">
+                            <a style="cursor: pointer;" onclick="upvote_click(${topContent.id},1);">
+                                <i class="icon icon-thumbs-o-up icon-2x"></i>
+                                <span class="number hidden" id="up_${topContent.id}">${topContent.upvote}</span>
+                            </a>
+                            &nbsp;
+                            <a style="cursor: pointer;" onclick="upvote_click(${topContent.id},-1);">
+                                <i class="icon icon-thumbs-o-down icon-2x"></i>
+                                <span class="number hidden" id="down_${topContent.id}">${topContent.downvote}</span>
+                            </a>
+                            &nbsp;
+                            <a style="cursor: pointer;" onclick="reply(${topContent.id},${topContent.uId});" title="点击打开或关闭">
+                                <i class="icon icon-comment-alt icon-2x"></i>
+                            </a>
+                        </div>
+                        <div class="single-share">
+                            <a class="share-wechat" data-type="wechat" title="分享到微信" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
+                                <i class="icon icon-wechat icon-2x"></i>
+                            </a>
+                            <a class="share-qq" data-type="qq" title="分享到QQ" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
+                                <i class="icon icon-qq icon-2x"></i>
+                            </a>
+                            <a  class="share-weibo" data-type="weibo" title="分享到微博" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
+                                <i class="icon icon-weibo icon-2x"></i>
+                            </a>
+                        </div>
+                        <br/>
+                        &nbsp;
+                        <div class="commentAll" style="display:none" id="comment_reply_${topContent.id}">
+                            <!--评论区域 begin-->
+                            <div class="reviewArea clearfix">
+                                <textarea id="comment_input_${topContentid}"  class="content comment-input" placeholder="输入内容&hellip;" onkeyup="keyUP(this)"></textarea>
+                                <a class="plBtn" id="comment_${topContent.id}" onclick="_comment(${topContent.id},${user.id==null?0:user.id},${topContent.uId})" style="color: white;cursor: pointer;">评论</a>
+                            </div>
+                            <!--评论区域 end-->
+                            <div class="comment-show-first" id="comment-show-${topContent.id}">
+
+                            </div>
+
+                        </div>
+
+                        <div class="single-clear">
+
+                        </div>
+                    </div>
+                     <div class="line_01">置顶博客结束(此为分割线,以下为正文)</div>
+                    <!-- 置顶博客结束 -->
+                    <div style="position: absolute;width:900px;background-color: #EBEBEB;height: 10px;left: 0px">
+
+                    </div>
+
+
 
                 <c:forEach var="cont" items="${page.result}" varStatus="i">
                     <!-- 正文开始 -->

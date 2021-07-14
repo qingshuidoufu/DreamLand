@@ -29,11 +29,11 @@ public class SendEmail {
            props.put("mail.smtp.host", host);
            props.put("mail.smtp.auth", "true");
            props.put("mail.user", from);
-           props.put("mail.password", "xqjagrdusendbgaa");
+           props.put("mail.password", "rnbvboiualvrbfib");
 
 
 
-           MyAuthenticator myauth = new MyAuthenticator(from, "xqjagrdusendbgaa");
+           MyAuthenticator myauth = new MyAuthenticator(from, "rnbvboiualvrbfib");
            Session session = Session.getDefaultInstance(props, myauth);
 
 //    session.setDebug(true);
