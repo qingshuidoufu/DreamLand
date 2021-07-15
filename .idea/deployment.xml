@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" promptOnRemoteOverwrite="CHECK_CONTENT" stopOnFirstError="true" overwriteAll="false" createEmptyFolders="true" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="aliyub-tomcat">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/webapps/dreamland-web" local="$PROJECT_DIR$/DreamLand-Web/target/dreamland-web" web="/dreamland-web" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7dcbe906-220a-4efa-9889-59ee22f92f14" name="aliyub-tomcat" url="http://http://8.129.114.122:8080">
+        <fileTransfer rootFolder="/home/softs/apache-tomcat-8.0.47" accessType="SFTP" host="8.129.114.122" port="1022" sshConfigId="f40b4cd7-e7d4-4697-9e63-4427f2bf59bd" sshConfig="root@8.129.114.122:1022 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -244,7 +244,7 @@
                         <div class="commentAll" style="display:none" id="comment_reply_${topContent.id}">
                             <!--评论区域 begin-->
                             <div class="reviewArea clearfix">
-                                <textarea id="comment_input_${topContentid}"  class="content comment-input" placeholder="输入内容&hellip;" onkeyup="keyUP(this)"></textarea>
+                                <textarea id="comment_input_${topContent.id}"  class="content comment-input" placeholder="输入内容&hellip;" onkeyup="keyUP(this)"></textarea>
                                 <a class="plBtn" id="comment_${topContent.id}" onclick="_comment(${topContent.id},${user.id==null?0:user.id},${topContent.uId})" style="color: white;cursor: pointer;">评论</a>
                             </div>
                             <!--评论区域 end-->
@@ -258,7 +258,7 @@
 
                         </div>
                     </div>
-                     <div class="line_01">置顶博客结束(此为分割线,以下为正文)</div>
+                     <div class="line_01">置顶博客结束(这是分割线,以下为正文)</div>
                     <!-- 置顶博客结束 -->
                     <div style="position: absolute;width:900px;background-color: #EBEBEB;height: 10px;left: 0px">
 
