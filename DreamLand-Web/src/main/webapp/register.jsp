@@ -11,7 +11,10 @@
 	<meta name="content" content="梦境网">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
     <link type="text/css" rel="stylesheet" href="${ctx}/css/dreamland.css">
+    <!--引入BootStrap样式-->
+    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet">
     <script type="text/javascript" src="${ctx}/js/jquery.min.js"></script>
 </head>
 
@@ -60,11 +63,10 @@
             </div>
         	<div class="bj_right" style="height: 408px">
             	<p>使用以下账号直接登录</p>
-                <a href="#" class="zhuce_qq">QQ注册</a>
-                <a href="#" class="zhuce_wb">微博注册</a>
-                <a href="#" class="zhuce_wx">微信注册</a>
-                <p>已有账号？<a href="login.html">立即登录</a></p>
-            
+                <a href="#" class="zhuce_qq"><i class="icon icon-qq"></i> QQ注册</a>
+                <a href="#" class="zhuce_wb"><i class="icon icon-weibo"></i> 微博注册</a>
+                <a href="#" class="zhuce_wx"><i class="icon icon-wechat"></i> 微信注册</a>
+                <div class="passage">已有账户?</div><a href="/login.jsp" class="back_to_login"><i class="icon icon-reply"></i> 返回登录</a>
             </div>
         </div>
     </div>

@@ -52,7 +52,7 @@
                     <form id="normal_form" name="form" role="form" class="login-form" action="${ctx}/doLogin" method="post">
                         <div class="form-group">
                             <label for="username" class="sr-only">用户名</label>
-                            <input type="text" id="username" name="username" onblur="checkUserName();" value="${email}" class="form-control" placeholder="用户名">
+                            <input type="text" id="username" name="username" onblur="checkUserName();" value="${email}" class="form-control" placeholder="邮箱">
                         </div>
                         <div class="form-group">
                             <label for="password" class="sr-only">密码</label>
