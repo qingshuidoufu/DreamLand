@@ -1,45 +1,49 @@
 DreamField
 ======
 
+![springMVC](https://img.shields.io/badge/SpringMVC-4.2.5-yellowgreen.svg)
+![spring](https://img.shields.io/badge/Spring-4.2.5-brightgreen.svg)
+![Mybatis](https://img.shields.io/badge/Mybatis-3.2.8-blue.svg)
+
 简介
 ----
 
-网页链接: http://www.dreamfield.top
+网页链接: http://www.dreamfield.top 或者点击<span style=font-size:25px>[梦想领域链接](http://dreamfield.top)</span>
 
 这是一个用来分享我的工作技术文章、旅行拍照或者其他破文章的一个网站。
 
 简而言之，你可以把这个网站当作一个个人博客。当然！这个博客不仅只有我可以发言，其他用户也可以进行注册、登录、发文章等行为。
 
-功能
-----
-
-1. #### 打开冰箱
-
-   * 伸出小手手
-   * 握住冰箱门
-   * 打开冰箱门
-
-2. #### 把大象装进去
-
-   + 双手握住大象
-   + 把大象塞进去
-
-3. #### 关上冰箱门
-
-   - 趁大象不注意
-   - 使劲关门
-
-安装教程
-----
-
-      System.out.println("Hellow World! 我是代码块哦");
-
 网站内容展示
 ----
 
+1. 登录
+2. 注册
+3. 浏览博客
+4. 个人空间
+5. 编写文章
+6. 点赞评论
+7. 信息修改
+8. 修改密码
+
+## 所用技术
+
+1. 框架：Spring、SpringMVC、Mybatis
+2. 数据库：MySQL
+3. 缓存数据库：Redis
+4. 富文本编辑器：Kindeditor
+5. 前端框架：zui、bootstrap、Jquery
+6. 异步更新：Ajax
+
+## 部署教程
+
+```
+暂略
+```
+
 ## 更新日志
 
-### V1.0 2020/7/5 
+### V1.0 2021/7/18
 
 * 更新了代码
 * 修复了漏洞
@@ -48,12 +52,13 @@ DreamField
 贡献
 ----
 
-<a href="#"><img style="width:80px; height:80px; border-radius:50%;margin:10px;" src="https://avatars1.githubusercontent.com/u/33644960?s=400&u=adfc16e621fb2144aaae241a43736527684d5bc5&v=4"></a><a href="#"><img style="width:80px; height:80px; border-radius:50%;margin:10px;" src="https://avatars1.githubusercontent.com/u/33644960?s=400&u=adfc16e621fb2144aaae241a43736527684d5bc5&v=4"></a><a href="#"><img style="width:80px; height:80px; border-radius:50%;margin:10px;" src="https://avatars1.githubusercontent.com/u/33644960?s=400&u=adfc16e621fb2144aaae241a43736527684d5bc5&v=4"></a>
+- 王永林（此项目基于他的项目二次开发）
+- 肖俊清（792649900@qq.com)
 
 
-打赏
+与我联系
 ----
 
-#### <p style="color:pink;">创作不易，请投喂零食~。=w=</p>
+#### <p style="color:pink;">如遇到问题，欢迎与我联系</p>
 
-<img alt="二维码" src="https://images.cnblogs.com/cnblogs_com/occlive/1791167/o_200621150108qq.jpg" width="300px" height="300px">
+<img alt="二维码" src="DreamLand-Web/src/main/webapp/images/dreamfield.png" width="300px" height="300px">
