@@ -61,4 +61,4 @@ DreamField
 
 #### <p style="color:pink;">如遇到问题，欢迎与我联系</p>
 
-<img alt="二维码" src="DreamLand-Web/src/main/webapp/images/dreamfield.png" width="300px" height="300px">
+<img alt="二维码" src="https://github.com/qingshuidoufu/DreamLand/blob/32c32d28f642fca6a82a5a585d78215dbe9cd4b2/DreamLand-Web/src/main/webapp/images/dreamfield.png" width="300px" height="300px">
