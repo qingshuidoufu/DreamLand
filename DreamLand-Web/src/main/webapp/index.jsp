@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>梦境网</title>
+    <title>梦想领域</title>
     <link href="${ctx}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="${ctx}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
@@ -124,7 +124,7 @@
 <body>
 <div class="container">
     <div>
-        <h1>Dreamland-梦境网</h1>
+        <h1>DreamField-梦想领域</h1>
     </div>
     <div style="position: absolute;margin-left: 980px;margin-top: -40px;">
         <c:if test="${empty user}">
@@ -151,15 +151,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="javascript:void(0);">首页</a>
+            <a class="navbar-brand" href="/index.jsp">首页</a>
         </div>
         <div id="navbar-menu" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">最新梦</a></li>
-                <li><a href="#">最热梦</a></li>
-                <li><a href="#">梦诗词</a></li>
-                <li><a href="#">梦问答</a></li>
-                <li><a href="#">我的梦</a></li>
+                <li class="active"><a href="/index.jsp">最新文章</a></li>
+                <li><a href="#">最热文章</a></li>
+                <li><a href="#">诗词</a></li>
+                <li><a href="#">问答</a></li>
+                <li><a href="#">我的文章</a></li>
                 <li><a href="${ctx}/list?id=${user.id}">个人空间</a></li>
             </ul>
         </div>
@@ -396,7 +396,7 @@
                         <ul>
                             <li>
                                 <a href="#" target="_blank" rel="nofollow">
-                                    关于梦境
+                                    关于梦想领域
                                 </a>
                             </li>
                             <li>
@@ -457,10 +457,10 @@
                         </h3>
                         <ul>
                             <li>
-                                <a href="http://www.dreamland.wang" onMouseOut="hideImg()"  onmouseover="showImg()">
+                                <a href="http://www.dreamfield.top" onMouseOut="hideImg()"  onmouseover="showImg()">
                                     微信
                                     <div id="wxImg" style="display:none;height:50px;back-ground:#f00;position:absolute;">
-                                        <img src="images/dreamland.png"/><br/>
+                                        <img src="images/dreamfield.png"/><br/>
                                         手机扫描二维码关注
                                     </div>
                                     <!-- <div class="foot-wechat-tips">
@@ -493,9 +493,9 @@
                         </p>
                         <p>
                             <span>违法和不良信息举报电话：010-xxxxxxx</span>
-                            <span>邮箱：xxx@dreamland.wang</span>
+                            <span>邮箱：792649900@qq.com</span>
                         </p>
-                        <p style="margin-top: 8px">&copy;www.dreamland.wang 梦境网版权所有</p>
+                        <p style="margin-top: 8px">&copy;www.dreamfield.top 梦想领域版权所有</p>
                     </div>
                 </div>
             </div>

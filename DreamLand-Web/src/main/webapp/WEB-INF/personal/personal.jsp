@@ -57,7 +57,7 @@
             width: 280px;
             height: 380px;
         }
-        /* 梦分类*/
+        /* 文章分类*/
         .dreamland-diff{
             display: block;
             width: 280px;
@@ -296,7 +296,7 @@
         <div class="collapse navbar-collapse navbar-collapse-example">
             <!-- 一般导航项目 -->
             <ul class="nav navbar-nav">
-                <li class="active"><a href="your/nice/url">我的梦</a></li>
+                <li class="active"><a href="your/nice/url">我的文章</a></li>
                 <li><a href="${ctx}/index_list">首页</a></li>
 
                 <!-- 导航中的下拉菜单 -->
@@ -312,7 +312,7 @@
             </ul>
 
             <ul class="nav navbar-nav">
-                <li><a href="${ctx}/writedream?id=${user.id}">写梦</a></li>
+                <li><a href="${ctx}/writedream?id=${user.id}">写文章</a></li>
             </ul>
             <ul class="nav navbar-nav" style="margin-left: 680px">
                 <li><a href="${ctx}/list?id=${user.id}">${user.nickName}
@@ -369,7 +369,7 @@
 
 
                 <div style="width: 35px;height: 18px;background-color: #4cae4c;float: left;line-height: 15px;margin-top: 30px;margin-left: 20px">
-                    <span style="color: white;font-size: 12px">梦博</span>
+                    <span style="color: white;font-size: 12px">文章</span>
                 </div>
                 <div style="width: 18px;height: 18px;background-color: #2b542c;float: left;line-height: 15px;margin-top: 30px;">
                     <span style="color: white;font-size: 12px">2</span>
@@ -391,7 +391,7 @@
 
     <div class="dreamland-diff">
         <div class="customer" style="height: 40px;background-color:#262626;line-height: 40px ">
-            <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">梦分类</font>
+            <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">文章分类</font>
         </div>
         <div class="list-group">
             <a onclick="changeToActive('category_x',null,null)" class="list-group-item active" id="category_x">全部(${page.total})</a>
@@ -654,19 +654,19 @@
     <div class="content-bar">
         <div id="fa-dreamland" style="background-color: #B22222;width: 120px;text-align: center;height: 40px;line-height: 40px;float: left" onclick="release_dreamland();">
 
-            <span id="fa-span" style="color: white">发布的梦</span>
+            <span id="fa-span" style="color: white">发布的文章</span>
 
         </div>
 
         <div id="manage-dreamland" style="background-color: #F0F0F0;width: 120px;text-align: center;height: 40px;line-height: 40px;float: left;margin-left: 20px" onclick="manage_dreamland();">
 
-            <span id="manage-span" style="color: black">管理梦</span>
+            <span id="manage-span" style="color: black">管理文章</span>
 
         </div>
 
         <div id="personal-div" style="background-color: #F0F0F0;width: 120px;text-align: center;height: 40px;line-height: 40px;float: left;margin-left: 20px" onclick="personal_dreamland();">
 
-            <span id="personal-span"  style="color: black">私密梦</span>
+            <span id="personal-span"  style="color: black">私密文章</span>
 
         </div>
 
@@ -807,7 +807,7 @@
     </div>
 
     <div class="hot-dreamland" style="height: 1020px">
-        <div style="text-align: center;margin-top: 20px">热梦推荐
+        <div style="text-align: center;margin-top: 20px">热门文章推荐
             <span style="color:#B22222 ">hot</span>
         </div>
 
@@ -860,7 +860,7 @@
 <!--右侧-->
 
 <div class="ibx-advice" onmouseover="changeBackColor();" onmouseout="back2color();">
-    <a href="${ctx}/writedream?id=${user.id}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color:#1b1b1b;font-size:30px;" title="写梦"></span></a>
+    <a href="${ctx}/writedream?id=${user.id}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color:#1b1b1b;font-size:30px;" title="写文章"></span></a>
 </div>
 
 <!--底部-->
@@ -875,7 +875,7 @@
                 <ul style="color: white">
                     <li>
                         <a href="" target="_blank" rel="nofollow" style="color: white">
-                            关于梦境网
+                            关于梦想领域
                         </a>
                     </li>
                     <li>
@@ -936,10 +936,10 @@
                 </h3>
                 <ul style="color: white">
                     <li>
-                        <a href="http://www.dreamland.wang" onMouseOut="hideImg()"  onmouseover="showImg()" style="color: white">
+                        <a href="http://www.dreamfield.top" onMouseOut="hideImg()"  onmouseover="showImg()" style="color: white">
                             微信
                             <div id="wxImg" style="display:none;height:50px;back-ground:#f00;position:absolute;color: white">
-                                <img src="images/dreamland.png"/><br/>
+                                <img src="images/dreamfield.png"/><br/>
                                 手机扫描二维码关注
                             </div>
 
@@ -970,7 +970,7 @@
                     <span style="color: white;font-size: 12px">违法和不良信息举报电话：010-xxxxxxx</span>
                     <span style="color: white">邮箱：xxx@dreamland.wang</span>
                 </p>
-                <p style="margin-top: 8px;color: white;font-size: 12px">&copy;www.dreamland.wang 梦境网版权所有</p>
+                <p style="margin-top: 8px;color: white;font-size: 12px">&copy;www.dreamfield.top 梦想领域版权所有</p>
             </div>
         </div>
     </div>
@@ -990,7 +990,7 @@
             manage_dreamland();
         }
     });
-    //梦分类点击事件
+    //文章分类点击事件
     function changeToActive(id,category,pageNum) {
         var ulist_id = "";
         if(typeof (id)=="object"){
@@ -1061,7 +1061,7 @@
 
         });
     }
-    //发布梦点击事件
+    //发布文章点击事件
     function release_dreamland() {
         document.getElementById("fa-dreamland").style.backgroundColor = "#B22222";
         document.getElementById("fa-span").style.color = "white";
@@ -1077,7 +1077,7 @@
         document.getElementById("update-dreamland").style.display = "none";
 
     }
-    //管理梦点击事件
+    //管理文章点击事件
     function manage_dreamland() {
         document.getElementById("fa-dreamland").style.backgroundColor = "#F0F0F0";
         document.getElementById("fa-span").style.color = "black";
@@ -1092,7 +1092,7 @@
         document.getElementById("personal-dreamland").style.display = "none";
         document.getElementById("update-dreamland").style.display = "";
     }
-    //私密梦点击事件
+    //私密文章点击事件
     function personal_dreamland() {
         document.getElementById("fa-dreamland").style.backgroundColor = "#F0F0F0";
         document.getElementById("fa-span").style.color = "black";
@@ -1110,7 +1110,7 @@
 
     }
 
-    //管理梦分页点击事件
+    //管理文章分页点击事件
     function turnPage(pageNum) {
         $("ul").remove("#update-dreamland-ul");
         $("ul").remove("#update-dreamland-fy");
@@ -1172,7 +1172,7 @@
         });
     }
 
-    //私密梦分页点击事件
+    //私密文章分页点击事件
     function personTurnPage(pageNum) {
         $("ul").remove("#personal-dreamland-ul");
         $("ul").remove("#personal-dreamland-fy");
@@ -1234,7 +1234,7 @@
         });
     }
 
-    //热梦推荐分页点击事件
+    //热门文章推荐分页点击事件
     function hotTurnPage(pageNum) {
         $("ul").remove("#hot-dreamland-ul");
         $("ul").remove("#hot-dreamland-fy");

@@ -7,8 +7,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>注册页面</title>
-	<meta name="keywords" content="梦境网">
-	<meta name="content" content="梦境网">
+	<meta name="keywords" content="梦想领域">
+	<meta name="content" content="梦想领域">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 
@@ -51,7 +51,7 @@
 
 
                   <div>
-               		<input id="protocol" type="checkbox" onclick="checkProtocol();"><span>已阅读并同意<a href="#" target="_blank" ><span class="lan">《梦境网用户协议》</span></a></span>
+               		<input id="protocol" type="checkbox" onclick="checkProtocol();"><span>已阅读并同意<a href="#" target="_blank" ><span class="lan">《梦想领域用户协议》</span></a></span>
                     <br/>
                     <span id="protocol_span"></span>
                 </div>
@@ -370,7 +370,7 @@
     //提交注册信息
     $("#to_register").click (function(){
         if(!checkProtocol()){
-            $("#protocol_span").text("请勾选\"阅读并接受梦境网用户协议\"！").css("color","red");
+            $("#protocol_span").text("请勾选\"阅读并接受梦想领域用户协议\"！").css("color","red");
         }else{
             $("#protocol_span").text("");
         }

@@ -83,7 +83,7 @@
 <body>
 <div class="active-head">
     <div style="line-height: 44px;margin-left: 5px">
-        <span style="color: white;font-family: Arial;font-size: 18px">Dreamland - 梦境网注册成功页面</span>
+        <span style="color: white;font-family: Arial;font-size: 18px">Dreamland - 梦想领域注册成功页面</span>
     </div>
     <div class="content">
         <div class="single-clear">
@@ -126,7 +126,7 @@
                 <ul>
                     <li>
                         <a href="#" target="_blank" rel="nofollow">
-                            关于梦境网
+                            关于梦想领域
                         </a>
                     </li>
                     <li>
@@ -187,10 +187,10 @@
                 </h3>
                 <ul>
                     <li>
-                        <a href="http://www.dreamland.wang" onMouseOut="hideImg()"  onmouseover="showImg()">
+                        <a href="http://www.dreamfield.top" onMouseOut="hideImg()"  onmouseover="showImg()">
                             微信
                             <div id="wxImg" style="display:none;height:50px;back-ground:#f00;position:absolute;">
-                                <img src="images/dreamland.png"/><br/>
+                                <img src="images/dreamfield.png"/><br/>
                                 手机扫描二维码关注
                             </div>
                             <!-- <div class="foot-wechat-tips">
@@ -223,9 +223,9 @@
                 </p>
                 <p>
                     <span>违法和不良信息举报电话：010-xxxxxxx</span>
-                    <span>邮箱：xxx@dreamland.wang</span>
+                    <span>邮箱：792649900@qq.com</span>
                 </p>
-                <p style="margin-top: 8px">&copy;www.dreamland.wang 梦境网版权所有</p>
+                <p style="margin-top: 8px">&copy;www.dreamfield.top 梦想领域版权所有</p>
             </div>
         </div>
 

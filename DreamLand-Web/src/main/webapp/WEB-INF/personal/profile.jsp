@@ -128,7 +128,7 @@
         <div class="collapse navbar-collapse navbar-collapse-example">
             <!-- 一般导航项目 -->
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">我的梦</a></li>
+                <li class="active"><a href="#">我的文章</a></li>
                 <li><a href="${ctx}/index_list">首页</a></li>
 
                 <!-- 导航中的下拉菜单 -->
@@ -144,7 +144,7 @@
             </ul>
 
             <ul class="nav navbar-nav">
-                <li><a href="${ctx}/writedream?id=${user.id}">写梦</a></li>
+                <li><a href="${ctx}/writedream?id=${user.id}">写文章</a></li>
             </ul>
             <ul class="nav navbar-nav" style="margin-left: 680px">
                 <li><a href="${ctx}/list?id=${user.id}">${user.nickName}
@@ -335,7 +335,7 @@
                 <ul style="color: white">
                     <li>
                         <a href="" target="_blank" rel="nofollow" style="color: white">
-                            关于梦境网
+                            关于梦想领域
                         </a>
                     </li>
                     <li>
@@ -396,10 +396,10 @@
                 </h3>
                 <ul style="color: white">
                     <li>
-                        <a href="http://www.dreamland.wang" onMouseOut="hideImg()"  onmouseover="showImg()" style="color: white">
+                        <a href="http://www.dreamfield.top" onMouseOut="hideImg()"  onmouseover="showImg()" style="color: white">
                             微信
                             <div id="wxImg" style="display:none;height:50px;back-ground:#f00;position:absolute;color: white">
-                                <img src="${ctx}/images/dreamland.png"/><br/>
+                                <img src="${ctx}/images/dreamfield.png"/><br/>
                                 手机扫描二维码关注
                             </div>
                         </a>
@@ -427,9 +427,9 @@
                 </p>
                 <p>
                     <span style="color: white;font-size: 12px">违法和不良信息举报电话：010-xxxxxxx</span>
-                    <span style="color: white">>邮箱：xxx@dreamland.wang</span>
+                    <span style="color: white">>邮箱：792649900@qq.com</span>
                 </p>
-                <p style="margin-top: 8px;color: white;font-size: 12px">&copy;www.dreamland.wang 梦境网版权所有</p>
+                <p style="margin-top: 8px;color: white;font-size: 12px">&copy;www.dreamfield.top 梦想领域版权所有</p>
             </div>
         </div>
     </div>

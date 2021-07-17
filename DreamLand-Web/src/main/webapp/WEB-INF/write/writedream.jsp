@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>写梦</title>
+    <title>写文章</title>
     <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
     <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
@@ -49,7 +49,7 @@
         <div class="collapse navbar-collapse navbar-collapse-example">
             <!-- 一般导航项目 -->
             <ul class="nav navbar-nav">
-                <li><a href="#">我的梦</a></li>
+                <li><a href="#">我的文章</a></li>
                 <li><a href="${ctx}/index_list">首页</a></li>
                 ...
                 <!-- 导航中的下拉菜单 -->
@@ -65,7 +65,7 @@
             </ul>
 
             <ul class="nav navbar-nav">
-                <li style="background-color: black"><a href="javascript:void(0);">写梦</a></li>
+                <li style="background-color: black"><a href="javascript:void(0);">写文章</a></li>
             </ul>
 
             <ul class="nav navbar-nav" style="margin-left: 680px">
@@ -89,19 +89,19 @@
                     ${cont.category}
                 </c:if>
                 <c:if test="${cont.category == '' || cont.category == null}">
-                    梦分类
+                    文章分类
                 </c:if>
 
             </span> <span class="caret"></span></button>
             <input id="hidden_cat" hidden="hidden" name="category" value="${cont.category}"/>
             <ul class="dropdown-menu" id="dreamland-category">
-                <li><a>惊悚梦</a></li>
-                <li><a>爱情梦</a></li>
-                <li><a>武侠梦</a></li>
-                <li><a>美食梦</a></li>
-                <li><a>工作梦</a></li>
-                <li><a>动物梦</a></li>
-                <li><a>其他梦</a></li>
+                <li><a>惊悚</a></li>
+                <li><a>爱情</a></li>
+                <li><a>武侠</a></li>
+                <li><a>美食</a></li>
+                <li><a>工作</a></li>
+                <li><a>动物</a></li>
+                <li><a>其他</a></li>
             </ul>
         </div>
     </div>
@@ -118,12 +118,12 @@
     <br/>
     <div class="switch" style="float: left;margin-top: 670px;margin-left: 20px;position: absolute">
         <input type="checkbox" name="private_dream" id="private_dream" value="off">
-        <label>私密梦</label>
+        <label>私密文章</label>
         <span style="color: red">${error}</span>
     </div>
     <br/>
     <div style="float: left;margin-top: 700px;margin-left:20px;position: absolute">
-        <button class="btn btn-primary"  type="button" id="sub_dream">发表梦</button>
+        <button class="btn btn-primary"  type="button" id="sub_dream">发表文章</button>
         <button class="btn btn-primary" id="go_back" type="button" >返回</button>
     </div>
 </div>
@@ -159,7 +159,7 @@
 
    });
 
-//私密梦开关点击事件
+//私密文章开关点击事件
 $(".switch").click(function () {
     var pd = document.getElementById('private_dream');
     if(pd.checked == true){
@@ -174,11 +174,11 @@ $(".switch").click(function () {
        location.href ="javascript:history.go(-1);"
    });
 
-   //发表梦
+   //发表文章
    $("#sub_dream").click (function(){
       var val =  $("#fen").html();
-       if(val.trim()=='梦分类'){
-           alert("请选择梦分类！");
+       if(val.trim()=='文章分类'){
+           alert("请选择文章分类！");
            return;
        }
 
